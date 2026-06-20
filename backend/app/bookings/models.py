@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from apps.vehicles.models import Vehicle
+from app.vehicles.models import Vehicle
 
 
 User = settings.AUTH_USER_MODEL
