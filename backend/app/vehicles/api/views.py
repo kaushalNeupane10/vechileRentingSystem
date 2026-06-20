@@ -1,9 +1,9 @@
 from rest_framework import viewsets, permissions
-from apps.vehicles.models import Vehicle
+from app.vehicles.models import Vehicle
 from .serializers import VehicleSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from apps.bookings.models import Booking
+from app.bookings.models import Booking
 from rest_framework.exceptions import ValidationError
 from .permissions import IsOwnerOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend

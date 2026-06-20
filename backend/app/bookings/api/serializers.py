@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.bookings.models import Booking
+from app.bookings.models import Booking
 
 
 

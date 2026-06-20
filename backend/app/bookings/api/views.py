@@ -1,5 +1,5 @@
 from rest_framework import viewsets, permissions
-from apps.bookings.models import Booking
+from app.bookings.models import Booking
 from .serializers import BookingSerializer
 from .permissions import IsBookingOwner
 from rest_framework.decorators import action
