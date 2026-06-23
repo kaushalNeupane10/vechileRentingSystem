@@ -28,6 +28,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", cast=bool)
 
+
 ALLOWED_HOSTS = config(
     "ALLOWED_HOSTS",
     cast=lambda v: [s.strip() for s in v.split(",")]
@@ -39,11 +40,38 @@ CORS_ALLOW_CREDENTIALS = config(
     cast=bool
 )
 
+# configure to connect frontend
+CORS_ALLOWED_ORIGINS = config(
+    "CORS_ALLOWED_ORIGINS",
+    cast=lambda v: [s.strip() for s in v.split(",")]
+)
+
+# cookies settings for auth
+ACCESS_COOKIE_NAME = "access_token"
+REFRESH_COOKIE_NAME = "refresh_token"
+
+ACCESS_COOKIE_AGE = 60 * 15
+REFRESH_COOKIE_AGE = 60 * 60 * 24 * 7
+
+COOKIE_SECURE = not DEBUG
+
+COOKIE_SAMESITE = "Lax"
+
+# Fetch the variable from your .env file
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
+
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "authorization",
+    "content-type",
+    "x-csrftoken",
+]
+
 # Add drf and jwt config
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "apps.users.api.authentication.CookieJWTAuthentication",
+    ],
 
     "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
@@ -63,8 +91,10 @@ REST_FRAMEWORK = {
 
 # jwt setting
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
@@ -76,13 +106,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app.users',
-    'app.vehicles',
-    'app.bookings',
-    'app.reviews',
+    'apps.users',
+    'apps.vehicles',
+    'apps.bookings',
+    'apps.reviews',
+    'apps.payments',
     'rest_framework',
     'corsheaders',
     'django_filters',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 #middleware
