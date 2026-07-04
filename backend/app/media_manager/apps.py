@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class MediaManagerConfig(AppConfig):
-    name = 'media_manager'
+    name = 'app.media_manager'

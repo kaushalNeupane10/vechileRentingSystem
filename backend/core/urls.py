@@ -25,5 +25,5 @@ urlpatterns = [
     path("api/payments/", include("app.payments.api.urls")),
 
     #media manager
-    path("api/media/", include("media_manager.api.urls")),
+    path("api/media/", include("app.media_manager.api.urls")),
 ]

@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import sys
 from pathlib import Path
 from datetime import timedelta
-import cloudianry
+import cloudinary
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -79,7 +79,7 @@ CORS_ALLOW_HEADERS = [
 # Add drf and jwt config
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "apps.users.api.authentication.CookieJWTAuthentication",
+        "app.users.api.authentication.CookieJWTAuthentication",
     ],
 
     "DEFAULT_PERMISSION_CLASSES": (
