@@ -4,12 +4,11 @@ from rest_framework.decorators import action
 from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
 from . import services
 from ..models import MediaFile, MediaFolder
 from .permissions import CanWriteAdminSpace, IsOwnerOrAdminOfMedia
 from .serializers import MediaFileSerializer, MediaFolderSerializer, MediaUploadSerializer
-
+from app.common.pagination import TurboHubPagination
 
 def _scope_queryset(qs, request):
     user = request.user
@@ -26,6 +25,7 @@ def _scope_queryset(qs, request):
 class MediaFolderViewSet(viewsets.ModelViewSet):
     serializer_class = MediaFolderSerializer
     permission_classes = [IsAuthenticated, CanWriteAdminSpace]
+    pagination_class = TurboHubPagination
 
     def get_queryset(self):
         qs = MediaFolder.objects.all()
@@ -48,6 +48,8 @@ class MediaFileViewSet(viewsets.ModelViewSet):
     serializer_class = MediaFileSerializer
     permission_classes = [IsAuthenticated, IsOwnerOrAdminOfMedia]
     parser_classes = [MultiPartParser, FormParser]
+    pagination_class = TurboHubPagination
+
 
     def get_queryset(self):
         qs = MediaFile.objects.select_related("folder")
