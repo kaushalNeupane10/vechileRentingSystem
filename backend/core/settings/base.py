@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import sys
 from pathlib import Path
 from datetime import timedelta
+import cloudinary
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -60,6 +61,14 @@ COOKIE_SAMESITE = "Lax"
 # Fetch the variable from your .env file
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 
+# cloudinary configuration 
+cloudinary.config(
+    cloud_name=config("CLOUDINARY_CLOUD_NAME"),
+    api_key=config("CLOUDINARY_API_KEY"),
+    api_secret=config("CLOUDINARY_API_SECRET"),
+    secure=True,
+)
+
 CORS_ALLOW_HEADERS = [
     "accept",
     "authorization",
@@ -70,7 +79,7 @@ CORS_ALLOW_HEADERS = [
 # Add drf and jwt config
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "apps.users.api.authentication.CookieJWTAuthentication",
+        "app.users.api.authentication.CookieJWTAuthentication",
     ],
 
     "DEFAULT_PERMISSION_CLASSES": (
@@ -106,15 +115,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.users',
-    'apps.vehicles',
-    'apps.bookings',
-    'apps.reviews',
-    'apps.payments',
+    'app.users',
+    'app.vehicles',
+    'app.bookings',
+    'app.reviews',
+    'app.payments',
+    'app.media_manager',
     'rest_framework',
     'corsheaders',
     'django_filters',
     'rest_framework_simplejwt.token_blacklist',
+    'cloudinary',
 ]
 
 #middleware
