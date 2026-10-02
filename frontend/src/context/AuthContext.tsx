@@ -16,7 +16,7 @@ import { apiClient, setAuthExpiredHandler } from "@/lib/api/apiClient";
 
 import { User } from "@/types/auth/auth";
 
-import { getRedirectPath } from "@/utils/authRedirect";
+import { getRedirectPath } from "@/utils/auth";
 
 interface AuthContextType {
   user: User | null;
