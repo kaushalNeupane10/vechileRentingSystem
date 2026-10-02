@@ -2,4 +2,8 @@ from django.apps import AppConfig
 
 
 class ReviewsConfig(AppConfig):
-    name = 'app.reviews'
+    name = 'apps.reviews'
+
+    def ready(self):
+        # Register rating-recalculation signal handlers.
+        from . import signals  # noqa: F401
