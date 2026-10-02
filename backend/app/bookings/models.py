@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from app.vehicles.models import Vehicle
+from apps.vehicles.models import Vehicle
 
 
 User = settings.AUTH_USER_MODEL
@@ -46,6 +46,13 @@ class Booking(models.Model):
         max_length=20,
         choices=STATUS_CHOICES,
         default="pending"
+    )
+
+    # Notes added by the vehicle owner when approving or declining a booking.
+    owner_notes = models.TextField(
+        blank=True,
+        default="",
+        help_text="Optional note from the vehicle owner explaining the decision.",
     )
 
 
