@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class BookingsConfig(AppConfig):
-    name = 'app.bookings'
+    name = 'apps.bookings'

@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from media_manager.models import MediaFile  # add this import
+from apps.media_manager.models import MediaFile
 
 class Vehicle(models.Model):
     VEHICLE_TYPE_CHOICES = (

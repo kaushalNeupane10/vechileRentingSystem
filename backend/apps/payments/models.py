@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from app.bookings.models import Booking
+from apps.bookings.models import Booking
 
 
 User = settings.AUTH_USER_MODEL

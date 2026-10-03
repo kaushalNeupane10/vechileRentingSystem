@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from app.payments.models import Payment
+from apps.payments.models import Payment
 
 
 

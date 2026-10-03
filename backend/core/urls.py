@@ -19,7 +19,7 @@ urlpatterns = [
     path('api/bookings/', include('apps.bookings.api.urls')),
     path('api/reviews/', include('apps.reviews.api.urls')),
     path('api/payments/', include('apps.payments.api.urls')),
-    path('api/media/', include('media_manager.api.urls')),
+    path('api/media/', include('apps.media_manager.api.urls')),
 
     # JWT token pair (kept for tooling/testing compatibility)
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

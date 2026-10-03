@@ -8,7 +8,7 @@ from . import services
 from ..models import MediaFile, MediaFolder
 from .permissions import CanWriteAdminSpace, IsOwnerOrAdminOfMedia
 from .serializers import MediaFileSerializer, MediaFolderSerializer, MediaUploadSerializer
-from app.common.pagination import TurboHubPagination
+from apps.common.pagination import TurboHubPagination
 
 def _scope_queryset(qs, request):
     user = request.user

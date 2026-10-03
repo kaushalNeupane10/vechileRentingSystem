@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from apps.vehicles.models import Vehicle, VehicleImage
-from media_manager.models import MediaFile
+from apps.media_manager.models import MediaFile
 from django.db import transaction
 
 
