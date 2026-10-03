@@ -16,7 +16,7 @@ import { apiClient, setAuthExpiredHandler } from "@/lib/api/apiClient";
 
 import { User } from "@/types/auth/auth";
 
-import { getRedirectPath } from "@/utils/auth";
+import { getRedirectPath } from "@/utils/authRedirect";
 
 interface AuthContextType {
   user: User | null;
@@ -91,7 +91,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setAuthExpiredHandler(() => {
       setUser(null);
 
-      router.replace("/login");
+      router.replace("/auth/login");
     });
   }, [router]);
 
@@ -105,6 +105,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     setUser(profile);
+
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const redirectUrl = params.get("next") || params.get("redirect");
+      if (redirectUrl && redirectUrl.startsWith("/")) {
+        router.push(redirectUrl);
+        return;
+      }
+    }
 
     router.push(getRedirectPath(profile.role));
   }, [getUserProfile, router]);
