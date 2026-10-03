@@ -68,9 +68,9 @@ export default function FaqSection() {
               </h2>
 
               <p className="mt-4 max-w-md text-base leading-relaxed text-text-muted">
-                Can&apos;t find the information you&apos;re looking for? Our
-                support team is available around the clock to help with
-                bookings, vehicle selection, and account questions.
+                Can't find the information you're looking for? Our support team
+                is available around the clock to help with bookings, vehicle
+                selection, and account questions.
               </p>
 
               <div className="mt-8">
