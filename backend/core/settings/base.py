@@ -60,6 +60,11 @@ COOKIE_SAMESITE = "Lax"
 
 # Fetch the variable from your .env file
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
+STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET', default='')
+
+# Frontend origin — used for Stripe redirect URLs and CORS.
+# Must NOT have a trailing slash.
+FRONTEND_URL = config('FRONTEND_URL', default='http://localhost:3000')
 
 # cloudinary configuration 
 cloudinary.config(
@@ -79,7 +84,7 @@ CORS_ALLOW_HEADERS = [
 # Add drf and jwt config
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "app.users.api.authentication.CookieJWTAuthentication",
+        "apps.users.api.authentication.CookieJWTAuthentication",
     ],
 
     "DEFAULT_PERMISSION_CLASSES": (
@@ -115,12 +120,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app.users',
-    'app.vehicles',
-    'app.bookings',
-    'app.reviews',
-    'app.payments',
-    'app.media_manager',
+    'apps.users',
+    'apps.vehicles',
+    'apps.bookings',
+    'apps.reviews',
+    'apps.payments',
+    'apps.media_manager',
     'rest_framework',
     'corsheaders',
     'django_filters',
