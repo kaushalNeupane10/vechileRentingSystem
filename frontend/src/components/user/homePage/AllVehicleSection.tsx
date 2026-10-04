@@ -2,7 +2,7 @@
 
 import { useTopRentedVehicles } from "@/hook/user/vehicle/useTopRentedVehicles";
 import { useOtherVehicles } from "@/hook/user/vehicle/useOtherVehicles";
-import VehicleGrid from "@/components/user/vehicle/VehicleGrid";
+import VehicleGrid from "@/components/vehicle/VehicleGrid";
 import SectionHeading from "./SectionHeading";
 
 /**

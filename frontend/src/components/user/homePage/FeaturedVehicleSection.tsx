@@ -1,7 +1,7 @@
 "use client";
 
 import { useFeaturedVehicles } from "@/hook/user/vehicle/useFeaturedVehicles";
-import VehicleGrid from "@/components/user/vehicle/VehicleGrid";
+import VehicleGrid from "@/components/vehicle/VehicleGrid";
 import SectionHeading from "./SectionHeading";
 
 /**

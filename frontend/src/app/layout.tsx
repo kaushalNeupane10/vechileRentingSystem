@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
+
 import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import QueryProvider from "@/providers/QueryProvider";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -22,8 +25,10 @@ export const metadata: Metadata = {
     default: "TurboHub — Premium Vehicle Rentals",
     template: "%s | TurboHub",
   },
+
   description:
     "Rent premium cars, bikes, EVs, SUVs and scooters in Nepal. Fast booking, secure payments, verified vehicles.",
+
   keywords: [
     "vehicle rental",
     "car rental",
@@ -44,33 +49,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-(function() {
-  try {
-    const storedTheme = localStorage.getItem('theme');
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    const theme =
-      storedTheme === 'dark' ||
-      (storedTheme === 'system' && systemDark)
-        ? 'dark'
-        : 'light';
-
-    document.documentElement.classList.add(theme);
-  } catch (e) {}
-})();
-`,
-          }}
-        />
-      </head>
-      <body suppressHydrationWarning className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <QueryProvider>
           <AuthProvider>
             <ThemeProvider>
-              <main>{children}</main>
+              <main className="flex-1">{children}</main>
+
               <ToastContainer
                 position="top-right"
                 autoClose={3000}

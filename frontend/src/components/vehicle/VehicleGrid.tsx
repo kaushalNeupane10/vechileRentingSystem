@@ -3,7 +3,7 @@
 import { AlertCircle, PackageOpen } from "lucide-react";
 import { PublicVehicleApiResponse } from "@/types/vehicle.types";
 import { mapPublicVehicleToCard } from "@/utils/vehicle.utils";
-import VehicleCard from "./VechileCard";
+import VehicleCard from "./VehicleCard";
 import VehicleCardSkeleton from "./VehicleCardSkeleton";
 
 interface VehicleGridProps {

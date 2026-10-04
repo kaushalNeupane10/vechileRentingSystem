@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { publicVehicleService } from "@/lib/services/public-vehicle.service";
-import { queryKeys } from "@/lib/react-query";
+import { queryKeys } from "@/lib/react-query/querykeys";
 
 /**
  * Fetches top-rented vehicles this week using the backend scoring algorithm.

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { publicVehicleService } from "@/lib/services/public-vehicle.service";
-import { queryKeys } from "@/lib/react-query";
+import { queryKeys } from "@/lib/react-query/querykeys";
 
 /**
  * Fetches a single public vehicle by id for the detail page (/vehicles/[id]).

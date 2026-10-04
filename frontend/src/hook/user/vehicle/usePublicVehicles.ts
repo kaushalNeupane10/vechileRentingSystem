@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { publicVehicleService } from "@/lib/services/public-vehicle.service";
-import { queryKeys } from "@/lib/react-query";
+import { queryKeys } from "@/lib/react-query/querykeys";
 import { PublicVehicleListParams } from "@/types/vehicle.types";
 
 /**

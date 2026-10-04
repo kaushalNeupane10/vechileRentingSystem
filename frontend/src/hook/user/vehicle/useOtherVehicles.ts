@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { publicVehicleService } from "@/lib/services/public-vehicle.service";
-import { queryKeys } from "@/lib/react-query";
+import { queryKeys } from "@/lib/react-query/querykeys";
 
 /**
  * Fetches public vehicles excluding the top-rented IDs.
