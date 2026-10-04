@@ -24,7 +24,7 @@ import {
   useRefundBooking,
   useCheckoutBooking,
   useReturnBooking,
-} from "@/hook/admin/bookings/useBookingActions";
+} from "@/hook/admin/bookings/useBookingAction";
 import { useDebounce } from "@/hook/common/useDebounce";
 
 import { BookingDetailResponse, BookingStatus } from "@/types/booking.types";
@@ -126,12 +126,12 @@ export default function BookingsPage() {
 
   const handleApprove = async (id: number, notes: string) => {
     try {
-      const updated = await approveMutation.mutateAsync({
+      await approveMutation.mutateAsync({
         bookingId: id,
         payload: { notes },
       });
       toast.success("Booking approved.");
-      if (selectedBooking?.id === id) setSelectedBooking(updated);
+      setSelectedBooking(null);
     } catch (err: unknown) {
       toast.error(
         err instanceof Error ? err.message : "Failed to approve booking.",
@@ -141,12 +141,12 @@ export default function BookingsPage() {
 
   const handleDecline = async (id: number, notes: string) => {
     try {
-      const updated = await declineMutation.mutateAsync({
+      await declineMutation.mutateAsync({
         bookingId: id,
         payload: { notes },
       });
       toast.success("Booking declined.");
-      if (selectedBooking?.id === id) setSelectedBooking(updated);
+      setSelectedBooking(null);
     } catch (err: unknown) {
       toast.error(
         err instanceof Error ? err.message : "Failed to decline booking.",
@@ -156,9 +156,9 @@ export default function BookingsPage() {
 
   const handleRefund = async (id: number) => {
     try {
-      const updated = await refundMutation.mutateAsync(id);
+      await refundMutation.mutateAsync(id);
       toast.success("Payment refunded successfully.");
-      if (selectedBooking?.id === id) setSelectedBooking(updated);
+      setSelectedBooking(null);
     } catch (err: unknown) {
       toast.error(
         err instanceof Error ? err.message : "Failed to refund payment.",
@@ -168,12 +168,12 @@ export default function BookingsPage() {
 
   const handleCheckout = async (id: number, notes: string) => {
     try {
-      const updated = await checkoutMutation.mutateAsync({
+      await checkoutMutation.mutateAsync({
         bookingId: id,
         payload: { notes },
       });
       toast.success("Vehicle marked as picked up.");
-      if (selectedBooking?.id === id) setSelectedBooking(updated);
+      setSelectedBooking(null);
     } catch (err: unknown) {
       toast.error(
         err instanceof Error ? err.message : "Failed to mark pickup.",
@@ -183,12 +183,12 @@ export default function BookingsPage() {
 
   const handleReturn = async (id: number, notes: string) => {
     try {
-      const updated = await returnMutation.mutateAsync({
+      await returnMutation.mutateAsync({
         bookingId: id,
         payload: { notes },
       });
       toast.success("Vehicle marked as returned.");
-      if (selectedBooking?.id === id) setSelectedBooking(updated);
+      setSelectedBooking(null);
     } catch (err: unknown) {
       toast.error(
         err instanceof Error ? err.message : "Failed to mark return.",

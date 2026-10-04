@@ -81,6 +81,21 @@ export interface BookingActionPayload {
   notes?: string;
 }
 
+/** Unauthenticated public tracking response shape. */
+export interface PublicBookingTrackResponse {
+  id: number;
+  start_date: string;
+  end_date: string;
+  total_price: string;
+  status: BookingStatus;
+  owner_notes: string;
+  vehicle_detail: BookingVehicleDetail;
+  customer_name: string;
+  payment_status: PaymentStatus | null;
+  created_at: string;
+  updated_at: string;
+}
+
 // ─── Payment API types (private, requires auth) ──────────────────────────────
 
 /** Shape returned by the payments API (PaymentSerializer, fields="__all__"). */

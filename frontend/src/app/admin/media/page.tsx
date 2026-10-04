@@ -1,6 +1,6 @@
 "use client";
 
-import MediaManager from "@/components/admin/media/MediaManger";
+import MediaManager from "@/components/admin/media/MediaManager";
 
 interface MediaManagerPageProps {
   isAdminSpace?: boolean;

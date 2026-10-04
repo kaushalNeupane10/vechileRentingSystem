@@ -137,7 +137,7 @@ export default function BookingWidget({ vehicle }: BookingWidgetProps) {
       <div className="flex items-baseline justify-between gap-2">
         <div>
           <span className="text-3xl font-black text-brand tabular-nums">
-            ${pricePerDay.toLocaleString("en-US", { maximumFractionDigits: 0 })}
+            NPR {pricePerDay.toLocaleString("en-US", { maximumFractionDigits: 0 })}
           </span>
           <span className="text-sm font-medium text-text-body"> / day</span>
         </div>
@@ -213,10 +213,10 @@ export default function BookingWidget({ vehicle }: BookingWidgetProps) {
         <dl className="mt-5 space-y-2.5 rounded-xl border border-border/60 bg-bg-elevated/50 p-4 text-sm">
           <div className="flex justify-between text-text-muted">
             <dt>
-              ${pricePerDay.toFixed(0)} × {days} {days === 1 ? "day" : "days"}
+              NPR {pricePerDay.toFixed(0)} × {days} {days === 1 ? "day" : "days"}
             </dt>
             <dd className="font-semibold text-text-body tabular-nums">
-              ${total.toFixed(2)}
+              NPR {total.toFixed(2)}
             </dd>
           </div>
           <div className="flex justify-between text-text-muted">
@@ -226,7 +226,7 @@ export default function BookingWidget({ vehicle }: BookingWidgetProps) {
           <div className="flex justify-between border-t border-border/50 pt-2.5">
             <dt className="font-bold text-text-heading">Total</dt>
             <dd className="font-black text-brand text-base tabular-nums">
-              ${total.toFixed(2)}
+              NPR {total.toFixed(2)}
             </dd>
           </div>
         </dl>
@@ -257,7 +257,7 @@ export default function BookingWidget({ vehicle }: BookingWidgetProps) {
               <span className="flex items-center gap-2">
                 <Zap size={18} className="fill-current text-amber-300" />
                 {days > 0
-                  ? `Book & Pay $${total.toFixed(2)}`
+                  ? `Book & Pay NPR ${total.toFixed(2)}`
                   : "Select Dates to Book"}
               </span>
             ) : (

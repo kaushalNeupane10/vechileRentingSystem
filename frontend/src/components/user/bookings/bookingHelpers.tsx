@@ -59,7 +59,7 @@ export function formatDateTime(iso: string) {
 export function formatPrice(value: string | number) {
   const num = Number(value);
   if (isNaN(num)) return "—";
-  return `Rs ${new Intl.NumberFormat("en-IN", {
+  return `NPR ${new Intl.NumberFormat("en-IN", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(num)}`;

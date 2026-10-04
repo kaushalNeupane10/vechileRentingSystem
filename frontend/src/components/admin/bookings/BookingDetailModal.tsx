@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   Calendar,
@@ -488,6 +488,9 @@ export default function BookingDetailModal({
   onClose,
 }: BookingDetailModalProps) {
   const [notes, setNotes] = useState("");
+  useEffect(() => {
+    setNotes("");
+  }, [booking?.id]);
   const isBusy =
     isApproving || isDeclining || isRefunding || isCheckingOut || isReturning;
 

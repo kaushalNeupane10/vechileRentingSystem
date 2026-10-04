@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { SelectedMedia } from "@/types/mediamanager/media";
+import { SelectedMedia } from "@/types/mediaManager/media";
 import { VehicleApiResponse, VehicleFormData } from "@/types/vehicle.types";
 import { useVehicleMutation } from "./useVehicleMutation";
 

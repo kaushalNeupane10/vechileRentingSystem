@@ -13,7 +13,7 @@ import { useCancelMyBooking } from "@/hook/user/booking/useCancelMyBooking";
 import { useBookingCheckout } from "@/hook/user/booking/useBookingCheckout";
 import UserBookingCard from "./UserBookingCard";
 import UserBookingDetailModal from "./UserBookingDetailModal";
-import UserBookingsSkeleton from "./UserBookingsSkeleton";
+import UserBookingSkeleton from "./UserBookingSkeleton";
 import UserBookingsFilterBar, {
   BookingFilterStatus,
 } from "./UserBookingsFilterBar";
@@ -187,7 +187,7 @@ export default function UserBookingsList() {
     return (
       <div className="space-y-6">
         <div className="h-9 w-48 rounded-xl bg-skeleton animate-pulse" />
-        <UserBookingsSkeleton count={3} />
+        <UserBookingSkeleton count={3} />
       </div>
     );
   }

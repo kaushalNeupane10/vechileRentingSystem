@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import { SelectedMedia } from "@/types/mediamanager/media";
+import { SelectedMedia } from "@/types/mediaManager/media";
 import MediaManager from "./MediaManager";
 
 interface MediaPickerModalProps {

@@ -245,7 +245,7 @@ export default function BookingTable({
                       <>
                         <button
                           type="button"
-                          onClick={() => onApprove(booking.id, "")}
+                          onClick={() => onView(booking)}
                           disabled={isBusy}
                           aria-label={`Approve booking #${booking.id}`}
                           title="Approve Booking"
@@ -265,7 +265,7 @@ export default function BookingTable({
 
                         <button
                           type="button"
-                          onClick={() => onDecline(booking.id, "")}
+                          onClick={() => onView(booking)}
                           disabled={isBusy}
                           aria-label={`Decline booking #${booking.id}`}
                           title="Decline Booking"
@@ -335,7 +335,7 @@ export default function BookingTable({
                     {isPaid && booking.status !== "cancelled" && (
                       <button
                         type="button"
-                        onClick={() => onRefund(booking.id)}
+                        onClick={() => onView(booking)}
                         disabled={isBusy}
                         aria-label={`Issue refund for booking #${booking.id}`}
                         title="Issue Refund"

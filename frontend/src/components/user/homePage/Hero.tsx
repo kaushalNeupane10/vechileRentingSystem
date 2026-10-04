@@ -21,7 +21,7 @@ const vehicles: Vehicle[] = [
       "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=1200",
     horsepower: "1020 HP",
     performance: "2.1s 0-60",
-    price: "$149",
+    price: "NPR 149",
   },
   {
     tag: "Adventure Bike",
@@ -30,7 +30,7 @@ const vehicles: Vehicle[] = [
       "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=1200",
     horsepower: "136 HP",
     performance: "Off-Road",
-    price: "$89",
+    price: "NPR 89",
   },
   {
     tag: "Luxury SUV",
@@ -39,7 +39,7 @@ const vehicles: Vehicle[] = [
       "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200",
     horsepower: "523 HP",
     performance: "AWD",
-    price: "$179",
+    price: "NPR 179",
   },
 ];
 

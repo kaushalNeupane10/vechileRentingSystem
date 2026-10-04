@@ -58,9 +58,9 @@ export default function UserMenu() {
         "
       >
         {/* Avatar */}
-        {user.avatar ? (
+        {(user.avatar_url || user.avatar) ? (
           <Image
-            src={user.avatar}
+            src={(user.avatar_url || user.avatar)!}
             alt={user.full_name}
             width={40}
             height={40}

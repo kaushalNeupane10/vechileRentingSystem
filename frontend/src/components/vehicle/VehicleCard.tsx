@@ -167,7 +167,7 @@ export default function VehicleCard({
               Daily Rate
             </span>
             <span className="text-xl font-black tabular-nums text-brand">
-              ${vehicle.pricePerDay.toLocaleString("en-US", { maximumFractionDigits: 0 })}
+              NPR {vehicle.pricePerDay.toLocaleString("en-US", { maximumFractionDigits: 0 })}
               <span className="text-sm font-medium text-text-body">/day</span>
             </span>
           </div>

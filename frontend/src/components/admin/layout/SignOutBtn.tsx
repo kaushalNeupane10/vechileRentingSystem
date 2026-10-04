@@ -11,7 +11,7 @@ export default function SignOutBtn({ showLabel = true }) {
         ) : (
           <button
             className="flex w-full items-center gap-3 px-4 py-2.5 rounded-xl font-semibold text-sm text-(--color-secondary-500) hover:bg-(--color-secondary-500)/10 transition-all duration-200 group"
-            onClick={!isLoggingOut ? logout : null}
+            onClick={!isLoggingOut ? logout : undefined}
           >
             <LogOut
               size={20}

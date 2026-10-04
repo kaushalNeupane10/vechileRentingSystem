@@ -21,7 +21,7 @@ import {
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
-import { useTrackBooking } from "@/hook/user/booking/useTrackBooking";
+import { useTrackBooking } from "@/hook/user/booking/useTrackBookings";
 import BookingTimeline from "./BookingTimeline";
 import {
   formatDate,
@@ -398,7 +398,6 @@ function BookingTrackerContent() {
 
                 {/* Conditional Pay Now / Login Prompt CTA */}
                 {data.status === "approved" &&
-                  data.payment_status !== "succeeded" &&
                   data.payment_status !== "successful" && (
                     <div className="mt-4 rounded-xl border border-brand/30 bg-brand/10 p-4 space-y-3">
                       <div className="flex items-start gap-2.5">
