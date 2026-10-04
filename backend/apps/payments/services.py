@@ -34,8 +34,8 @@ def create_checkout_session(payment):
             }
         ],
         mode="payment",
-        success_url=f"{_FRONTEND_URL}/payment-success?session_id={{CHECKOUT_SESSION_ID}}",
-        cancel_url=f"{_FRONTEND_URL}/payment-cancel",
+       success_url=f"{_FRONTEND_URL}/site/payment-success?session_id={{CHECKOUT_SESSION_ID}}",
+        cancel_url=f"{_FRONTEND_URL}/site/payment-cancel",
         metadata={
             "payment_id": str(payment.id),
             "booking_id": str(payment.booking.id),

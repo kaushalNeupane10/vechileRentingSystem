@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { vehicleService } from "@/lib/services/vehicle.service";
-import { queryKeys } from "@/lib/react-query";
+import { queryKeys } from "@/lib/react-query/querykeys";
 import { VehicleFormData } from "@/types/vehicle.types";
 
 export function useCreateVehicle() {

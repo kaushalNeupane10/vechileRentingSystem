@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { bookingService } from "@/lib/services/booking.service";
-import { queryKeys } from "@/lib/react-query";
+import { queryKeys } from "@/lib/react-query/querykeys";
 import { CreateBookingPayload } from "@/types/booking.types";
 
 /**

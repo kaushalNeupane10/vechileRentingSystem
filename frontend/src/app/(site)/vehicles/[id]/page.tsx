@@ -12,10 +12,10 @@ import {
   AlertCircle,
 } from "lucide-react";
 
-import { useVehicleDetail } from "@/hook/user/vehicle/useVehicleDetail";
 import { mapPublicVehicleToCard } from "@/utils/vehicle.utils";
-import VehicleGallery from "@/components/user/vehicle/VehicleGallery";
-import BookingWidget from "@/components/user/vehicle/BookingWidget";
+import BookingWidget from "@/components/vehicle/BookingWidget";
+import VehicleGallery from "@/components/vehicle/VehicleGallery";
+import { useVehicleDetail } from "@/hook/user/vehicle/useVehicleDetails";
 
 const CATEGORY_LABELS: Record<string, string> = {
   car: "Car",

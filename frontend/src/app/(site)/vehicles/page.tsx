@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-import BrowseToolbar from "@/components/user/vehicle/BrowseToolbar";
-import VehicleGrid from "@/components/user/vehicle/VehicleGrid";
+import BrowseToolbar from "@/components/vehicle/BrowseToolbar";
+import VehicleGrid from "@/components/vehicle/VehicleGrid";
 import Pagination from "@/components/ui/common/Pagination";
 
 import { usePublicVehicles } from "@/hook/user/vehicle/usePublicVehicles";

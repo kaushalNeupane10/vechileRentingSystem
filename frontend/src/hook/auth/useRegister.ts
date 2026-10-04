@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { loginUser, registerUser } from "@/lib/services/authService";
+import { loginUser, registerUser } from "@/lib/services/auth.service";
 import { useAuth } from "@/context/AuthContext";
 
 import { RegisterData, User } from "@/types/auth/auth";

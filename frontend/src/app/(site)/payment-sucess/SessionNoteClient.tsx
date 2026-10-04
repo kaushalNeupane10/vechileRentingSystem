@@ -1,57 +1,21 @@
-import { Suspense } from "react";
-import Link from "next/link";
-import { CheckCircle2, CalendarDays } from "lucide-react";
-import { SessionNoteClient } from "./SessionNoteClient";
+"use client";
 
-export const metadata = {
-  title: "Payment Successful",
-};
+import { useSearchParams } from "next/navigation";
 
 /**
- * Stripe redirects here after a successful checkout:
- *   /payment-success?session_id={CHECKOUT_SESSION_ID}
+ * Displays the Stripe checkout session id in small print (support reference).
+ * Uses useSearchParams, so it must be a client component rendered inside a
+ * Suspense boundary on the server page.
  */
-export default function PaymentSuccessPage() {
+export function SessionNoteClient() {
+  const searchParams = useSearchParams();
+  const sessionId = searchParams.get("session_id");
+
+  if (!sessionId) return null;
+
   return (
-    <div className="flex min-h-[70vh] items-center justify-center px-4 py-16">
-      <div className="w-full max-w-md rounded-2xl border border-border/70 bg-bg-surface p-8 text-center shadow-lg">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-success/10 text-success">
-          <CheckCircle2 size={34} />
-        </div>
-
-        <h1 className="mt-6 text-2xl font-black text-text-heading">
-          Payment successful!
-        </h1>
-        <p className="mt-3 text-text-muted">
-          Thank you for your booking. Your payment has been received and your
-          rental request is now{" "}
-          <span className="font-semibold text-warning">
-            pending host approval
-          </span>
-          . The owner will cross-verify vehicle availability and review your
-          request.
-        </p>
-
-        <Suspense fallback={null}>
-          <SessionNoteClient />
-        </Suspense>
-
-        <div className="mt-8 space-y-3">
-          <Link
-            href="/bookings"
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand px-4 py-3 font-medium text-brand-foreground transition hover:bg-brand-dark"
-          >
-            <CalendarDays size={18} />
-            View my bookings
-          </Link>
-          <Link
-            href="/vehicles"
-            className="flex w-full items-center justify-center rounded-lg border border-border px-4 py-3 font-medium text-text-body transition hover:bg-bg-elevated"
-          >
-            Continue browsing
-          </Link>
-        </div>
-      </div>
-    </div>
+    <p className="mt-4 break-all rounded-lg bg-bg-elevated px-3 py-2 text-xs text-text-muted">
+      Reference: {sessionId}
+    </p>
   );
 }
